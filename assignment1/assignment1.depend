@@ -1,0 +1,14 @@
+# depslib dependency file v1.0
+1421374187 source:c:\users\doktor\desktop\spring2015\c++2\assignment1\main.cpp
+	<iostream>
+	<booktype.h>
+
+1421372870 c:\users\doktor\desktop\spring2015\c++2\assignment1\\booktype.h
+	<iostream>
+	<string>
+
+1421322291 source:c:\users\doktor\desktop\spring2015\c++2\assignment1\booktype.cpp
+	<iostream>
+	<string>
+	<booktype.h>
+
