@@ -18,7 +18,6 @@ int main()
 
     book = new BookType[numOfBooks];
     ret_index = collectData(book, numOfBooks);
-    cout << ret_index;
 
     return 0;
 }

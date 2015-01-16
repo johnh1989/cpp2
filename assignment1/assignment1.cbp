@@ -33,7 +33,6 @@
 			<Add option="-fexceptions" />
 			<Add directory="C:/Users/doktor/Desktop/spring2015/c++2/assignment1/" />
 		</Compiler>
-		<Unit filename="booktype.cpp" />
 		<Unit filename="booktype.h" />
 		<Unit filename="main.cpp" />
 		<Extensions>
