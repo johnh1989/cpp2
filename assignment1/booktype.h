@@ -15,6 +15,7 @@ private:
     int publishYear;
     double price;
     static int totalBooks;
+    int numInStock;
 
 
 public:
@@ -48,6 +49,16 @@ public:
         for (int i = 0; i < numberOfAuthors; i++){
             cout << i+1 << ". " <<  authors[i] << endl;
         }
+    }
+
+    bool compareAuthor(string a){
+        bool val = false;
+        for (int i = 0; i < numberOfAuthors; i++){
+            if ( a == authors[i] ){
+                val = true;
+            }
+        }
+        return val;
     }
 
     int getNumberOfAuthors(){
@@ -84,6 +95,18 @@ public:
 
     void setPrice(double p){
         price = p;
+    }
+
+    double getPrice(){
+        return price;
+    }
+
+    void setNumInStock(int s){
+        numInStock = s;
+    }
+
+    int getNumInStock(){
+        return numInStock;
     }
 
     static void setTotalBooks(int t){
