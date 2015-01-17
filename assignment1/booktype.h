@@ -78,7 +78,7 @@ public:
                 transform(isbn.begin(), isbn.end(), isbn.begin(), ::toupper);
                 transform(this->isbn.begin(), this->isbn.end(), this->isbn.begin(), ::toupper);
                 if ( this->isbn == isbn ){
-                val = true;
+                    val = true;
                 }
             }
         }
