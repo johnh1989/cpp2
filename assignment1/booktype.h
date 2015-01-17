@@ -2,6 +2,7 @@
 #define BOOKTYPE_H_INCLUDED
 #include <iostream>
 #include <string>
+#include <algorithm>
 
 using namespace std;
 
@@ -51,13 +52,37 @@ public:
         }
     }
 
+    /* this function converts string to uppercase
+        and then compares the two author strings */
     bool compareAuthor(string a){
         bool val = false;
         for (int i = 0; i < numberOfAuthors; i++){
+            transform(a.begin(), a.end(), a.begin(), ::toupper);
+            transform(authors[i].begin(), authors[i].end(), authors[i].begin(), ::toupper);
             if ( a == authors[i] ){
-                val = true;
+            val = true;
             }
         }
+        return val;
+    }
+
+    /*converts two strings to upper and compares the ISBN's*/
+    bool compareISBN(string isbn){
+        bool val = false;
+        int length = this->isbn.length();
+        if (isbn.length() != length){
+            val = false;
+        }
+        else{
+            for (int i = 0; i < length; i++){
+                transform(isbn.begin(), isbn.end(), isbn.begin(), ::toupper);
+                transform(this->isbn.begin(), this->isbn.end(), this->isbn.begin(), ::toupper);
+                if ( this->isbn == isbn ){
+                val = true;
+                }
+            }
+        }
+
         return val;
     }
 

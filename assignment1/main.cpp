@@ -26,13 +26,13 @@ int main()
     ret_index = collectData(book, numOfBooks);
 
     while (option != 0){
-        cout << "What would you like to do next?" << endl;
+        cout << "\nWhat would you like to do next?" << endl;
         cout << "0. Exit" << endl;
         cout << "1. Display book data" << endl;
         cout << "2. Update book data" << endl;
         cout << "3. Search by author" << endl;
         cout << "4. Search by ISBN" << endl;
-        cout << " Make your selection: ";
+        cout << " MAKE YOUR SELECTION > ";
         cin >> option;
         switch(option){
             case 0: cout << "goodbye!";
@@ -122,6 +122,7 @@ void displayData(BookType* book, const int index){
     }
 }
 
+/*update either price or QTY in stock based on integer option from main().*/
 void updateData(BookType *book, int updateOption, const int index){
     int option;
     double price;
@@ -148,6 +149,7 @@ void updateData(BookType *book, int updateOption, const int index){
     }
 }
 
+/* User enters name here and then BookType member function searches for a match*/
 void searchAuthor(BookType* book, const int index){
     string author;
     bool match = false;
@@ -157,11 +159,28 @@ void searchAuthor(BookType* book, const int index){
     for (int i = 0; i < index; i++){
         match = book[i].compareAuthor(author);
         if (match == true){
-            cout << "Found: " << book[i].getTitle() << endl;
+            cout << "\nFound: " << book[i].getTitle() << "\n" << endl;
+        }
+        else{
+            cout << "\nNONE FOUND" << endl;
         }
     }
 }
 
+/* User enters ISBN here and then BookType member function searches for a match*/
 void searchISBN(BookType* book, const int index){
-    cout << "place holder";
+    string isbn;
+    bool match = false;
+    cout << "Enter ISBN: ";
+    cin.ignore();
+    getline(cin, isbn);
+    for (int i = 0; i < index; i++){
+        match = book[i].compareISBN(isbn);
+        if (match == true){
+            cout << "Found: " << book[i].getTitle() << "\n" << endl;
+        }
+        else{
+            cout << "\nNONE FOUND\n" << endl;
+        }
+    }
 }
