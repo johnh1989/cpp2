@@ -23,12 +23,22 @@ int main()
     int ret_index;
     int option = 1;
     int updateOption;
+    char keepGoing;
 
     cout << "How many books do you want to enter: ";
     cin >> numOfBooks;
     while(numOfBooks <= 0){
-        cout << "Please enter at least one book: ";
-        cin >> numOfBooks;
+        cout << "Do you want to exit y/n: ";
+        cin >> keepGoing;
+        keepGoing = toupper(keepGoing);
+        if (keepGoing == 'N'){
+            cout << "Please enter at least one book: ";
+            cin >> numOfBooks;
+        }
+        else{
+            cout << "\nGoodbye!";
+            return 0;
+        }
     }
 
     book = new BookType[numOfBooks];
@@ -51,6 +61,9 @@ int main()
             case 2: cout << "What do you want to update?" << endl;
                     cout << "1 for price" << endl;
                     cout << "2 for quantity in stock" << endl;
+                    cout << "3 for authors" << endl;
+                    cout << "4 for publish year" << endl;
+                    cout << "5 for title" << endl;
                     cin >> updateOption;
                     updateData(book, updateOption, ret_index);
                     break;
@@ -135,7 +148,10 @@ void displayData(BookType* book, const int index){
 void updateData(BookType *book, int updateOption, const int index){
     int option;
     double price;
+    string title;
     int qty;
+    int numOfAuthors;
+    int year;
     if (updateOption == 1){
         cout << "Which book do you want to update the price for?" << endl;
         for (int i = 0; i < index; i++){
@@ -156,6 +172,37 @@ void updateData(BookType *book, int updateOption, const int index){
         cin >> qty;
         book[option-1].setNumInStock(qty);
     }
+    if (updateOption == 3){
+        cout << "Which book do you want to update the authors for?" << endl;
+        for (int i = 0; i < index; i++){
+            cout << i+1 << ". " << book[i].getTitle() << endl;
+        }
+        cin >> option;
+        cout << "How many authors does " << book[option-1].getTitle() << " have: ";
+        cin >> numOfAuthors;
+        cin.ignore();
+        book[option-1].createAuthorArray(numOfAuthors);
+    }
+    if (updateOption == 4){
+        cout << "Which book do you want to update the publish year for?" << endl;
+        for (int i = 0; i < index; i++){
+            cout << i+1 << ". " << book[i].getTitle() << endl;
+        }
+        cin >> option;
+        cout << "Enter enter new publish year for " << book[option-1].getTitle() << ": ";
+        cin >> year;
+        book[option-1].setPublishYear(year);
+    }
+    if (updateOption == 5){
+        cout << "Which book do you want to update the title for?" << endl;
+        for (int i = 0; i < index; i++){
+            cout << i+1 << ". " << book[i].getTitle() << endl;
+        }
+        cin >> option;
+        cout << "Enter enter new title for " << book[option-1].getTitle() << ": ";
+        cin >> title;
+        book[option-1].setTitle(title);
+    }
 }
 
 /* User enters name here and then BookType member function searches for a match*/
@@ -169,9 +216,6 @@ void searchAuthor(BookType* book, const int index){
         match = book[i].compareAuthor(author);
         if (match == true){
             cout << "\nFound: " << book[i].getTitle() << "\n" << endl;
-        }
-        else{
-            cout << "\nNONE FOUND" << endl;
         }
     }
 }
