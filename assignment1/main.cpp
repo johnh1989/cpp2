@@ -39,6 +39,11 @@ int main()
         if (keepGoing == 'N'){
             cout << "Please enter at least one book: ";
             cin >> numOfBooks;
+            while(numOfBooks > 10){
+                cout << "Only allowed to enter up to 10 books at a time!" << endl;
+                cout << "How many do you want to enter: ";
+                cin >> numOfBooks;
+            }
         }
         else{
             cout << "\nGoodbye!";
