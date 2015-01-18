@@ -27,6 +27,11 @@ int main()
 
     cout << "How many books do you want to enter: ";
     cin >> numOfBooks;
+    while(numOfBooks > 10){
+        cout << "Only allowed to enter up to 10 books at a time!" << endl;
+        cout << "How many do you want to enter: ";
+        cin >> numOfBooks;
+    }
     while(numOfBooks <= 0){
         cout << "Do you want to exit y/n: ";
         cin >> keepGoing;
