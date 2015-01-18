@@ -1,3 +1,8 @@
+/*John H.
+This program allows a user to enter information for desired amount of books,
+including, price, publish date, up to 4 authors, and ISBN
+*/
+
 #include <iostream>
 #include <booktype.h>
 
@@ -21,6 +26,10 @@ int main()
 
     cout << "How many books do you want to enter: ";
     cin >> numOfBooks;
+    while(numOfBooks <= 0){
+        cout << "Please enter at least one book: ";
+        cin >> numOfBooks;
+    }
 
     book = new BookType[numOfBooks];
     ret_index = collectData(book, numOfBooks);
@@ -82,7 +91,7 @@ int collectData(BookType* book, const int index){
 
             cout << "Enter publisher year for " << book[i].getTitle() << ": ";
             cin >> publishYear;
-            if (publishYear < 1500 || publishYear > 2015){
+            while(publishYear < 1500 || publishYear > 2015){
                 cout << "Please enter a valid year: ";
                 cin >> publishYear;
             }
