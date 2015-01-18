@@ -120,11 +120,18 @@ int collectData(BookType* book, const int index){
 
             BookType::setTotalBooks(i+1);
 
+            if(BookType::getTotalBooks() == 10){
+                cout << "Maximum of ten books has been reached" << endl;
+                return BookType::getTotalBooks();
+            }
+
             if (BookType::getTotalBooks() < index){
                 cout << "Add another book? y/n"; // give them the option to exit
                 cin >> addBook;
                 addBook = toupper(addBook);
             }
+
+
         }
     }
     return BookType::getTotalBooks();
