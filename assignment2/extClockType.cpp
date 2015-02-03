@@ -18,6 +18,18 @@ extClockType::extClockType(int hours, int minutes, int seconds, string tz)
     this->tz = tz;
 }
 
+//function allows  time and timezone to be set
+void extClockType::setTime(int hours, int minutes, int seconds, string tz){
+    clockType::setTime(hours, minutes, seconds);
+    this->tz = tz;
+}
+
+//returns time and timezone
+void extClockType::getTime(int& hours, int& minutes, int& seconds, string tz) const{
+    clockType::getTime(hours, minutes, seconds);
+    tz = this->tz;
+ }
+
 /*This function prints time and timezone*/
 void extClockType::printTime() const{
     int hr, minutes, sec;
@@ -37,14 +49,9 @@ void extClockType::printTime() const{
 	cout << extClockType::getTZ() << endl;
 }
 
-//function allows  time and timezone to be set
-void extClockType::setTime(int hours, int minutes, int seconds, string tz){
-    clockType::setTime(hours, minutes, seconds);
-    this->tz = tz;
-}
-
 //returns timezone
 string extClockType::getTZ() const{
     return tz;
 }
+
 

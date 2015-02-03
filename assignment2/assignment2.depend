@@ -1,25 +1,24 @@
 # depslib dependency file v1.0
-1422644217 source:c:\users\doktor\desktop\spring2015\cpp2\assignment2\clocktype.cpp
+1422689077 source:c:\users\doktor\desktop\spring2015\cpp2\assignment2\clocktype.cpp
 	<iostream>
 	"clockType.h"
 
-1422644036 c:\users\doktor\desktop\spring2015\cpp2\assignment2\clocktype.h
+1422689075 c:\users\doktor\desktop\spring2015\cpp2\assignment2\clocktype.h
 
-1422647681 source:c:\users\doktor\desktop\spring2015\cpp2\assignment2\extclocktype.cpp
+1422939292 source:c:\users\doktor\desktop\spring2015\cpp2\assignment2\extclocktype.cpp
 	"clockType.h"
 	"extClockType.h"
 	<iostream>
 	<string>
 
-1422647602 source:c:\users\doktor\desktop\spring2015\cpp2\assignment2\main.cpp
+1422939399 source:c:\users\doktor\desktop\spring2015\cpp2\assignment2\main.cpp
 	<iostream>
 	"clockType.h"
 	"extClockType.h"
 
-1422647681 c:\users\doktor\desktop\spring2015\cpp2\assignment2\extclocktype.h
-	<iostream>
+1422939292 c:\users\doktor\desktop\spring2015\cpp2\assignment2\extclocktype.h
 	<clockType.h>
 	<string>
 
-1422644036 c:\users\doktor\desktop\spring2015\cpp2\assignment2\\clocktype.h
+1422689075 c:\users\doktor\desktop\spring2015\cpp2\assignment2\\clocktype.h
 

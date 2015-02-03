@@ -34,9 +34,13 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
-		<Unit filename="clockType.cpp" />
+		<Unit filename="clockType.cpp">
+			<Option virtualFolder="Res/" />
+		</Unit>
 		<Unit filename="clockType.h" />
-		<Unit filename="extClockType.cpp" />
+		<Unit filename="extClockType.cpp">
+			<Option virtualFolder="Res/" />
+		</Unit>
 		<Unit filename="extClockType.h" />
 		<Unit filename="main.cpp" />
 		<Extensions>
