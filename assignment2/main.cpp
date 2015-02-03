@@ -58,6 +58,7 @@ int main()
     clock2.printTime();
 
     areEqual(clock1, clock2);
+    cin.get();
     return 0;
 }
 
