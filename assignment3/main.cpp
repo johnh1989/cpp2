@@ -43,18 +43,24 @@ int main()
     }
 
     winner = findWinner(candidates, numOfCandidates);
+    if ( winner == "There is a tie"){
+        cout << winner << endl;
+    }else{
     cout << endl << winner << " has won this election!" << endl;
+    }
     return 0;
 }
 
 //function finds candidate with most votes and returns their last name
 string findWinner(candidate* candidates, int index){
     int temp = 0;
-    string winner = "none";
+    string winner = "no one";
     for (int i = 0; i < index; i++){
         if( candidates[i].Getvotes() > temp ){
             temp = candidates[i].Getvotes();
             winner = candidates[i].GetlastName();
+        }else if(candidates[i].Getvotes() == temp){
+            winner = "There is a tie";
         }
     }
     return winner;
