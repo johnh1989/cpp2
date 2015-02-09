@@ -15,39 +15,45 @@ int main()
     candidate* candidates;
     cout << "how many candidates do you want to enter: ";
     cin >> numOfCandidates;
-    candidates = new candidate[numOfCandidates];
-    for (int i = 0; i < numOfCandidates; i++){
-        cout << "Enter last name: ";
-        cin.ignore().clear();
-        getline(cin, lastName);
-        candidates[i].SetlastName(lastName);
+    if (numOfCandidates > 0){
+	    candidates = new candidate[numOfCandidates];
+	    for (int i = 0; i < numOfCandidates; i++){
+	        cout << "Enter last name: ";
+	        cin.ignore().clear();
+	        getline(cin, lastName);
+	        candidates[i].SetlastName(lastName);
 
-        cout << "Enter Number of votes received: ";
-        cin >> votes;
-        candidates[i].Setvotes(votes);
-        candidate::setTotalVotes(votes);
-    }
+	        cout << "Enter Number of votes received: ";
+	        cin >> votes;
+	        candidates[i].Setvotes(votes);
+	        candidate::setTotalVotes(votes);
+	    }
 
-    // after all votes are entered, calculate percent of total for each candidate
-    for (int i = 0; i < numOfCandidates; i++){
-         candidates[i].SetpercentOfTotal();
-    }
+	    // after all votes are entered, calculate percent of total for each candidate
+	    for (int i = 0; i < numOfCandidates; i++){
+	         candidates[i].SetpercentOfTotal();
+	    }
 
-    cout << left << setw(13) << "Candidate" << right << setw(16) << "Votes Received" << right << setw(14) << "% of total" << endl;
-    cout << "--------------------------------------------" << endl;
-    for (int i = 0; i < numOfCandidates; i++){
-        cout << left << setw(13) << candidates[i].GetlastName() <<
-                right << setw(16) << candidates[i].Getvotes() <<
-                right << setw(14) << fixed << setprecision(2) <<
-                candidates[i].GetpercentOfTotal() << "%" << endl;
-    }
+	    cout << left << setw(13) << "Candidate" << right << setw(16) << "Votes Received" << right << setw(14) << "% of total" << endl;
+	    cout << "--------------------------------------------" << endl;
+	    for (int i = 0; i < numOfCandidates; i++){
+	        cout << left << setw(13) << candidates[i].GetlastName() <<
+	                right << setw(16) << candidates[i].Getvotes() <<
+	                right << setw(14) << fixed << setprecision(2) <<
+	                candidates[i].GetpercentOfTotal() << "%" << endl;
+	    }
 
-    winner = findWinner(candidates, numOfCandidates);
-    if ( winner == "There is a tie"){
-        cout << winner << endl;
-    }else{
-    cout << endl << winner << " has won this election!" << endl;
-    }
+	    winner = findWinner(candidates, numOfCandidates);
+	    if ( winner == "There is a tie"){
+	        cout << winner << endl;
+	    }else{
+            cout << endl << winner << " has won this election!" << endl;
+	    }
+        delete[] candidates;
+	}else{
+		cout << "Goodbye" << endl;
+	}
+	cin.ignore().get();
     return 0;
 }
 
