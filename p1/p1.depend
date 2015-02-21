@@ -1,0 +1,18 @@
+# depslib dependency file v1.0
+1424492599 source:c:\users\doktor\desktop\spring2015\cpp2\p1\main.cpp
+	<iostream>
+	"aseqlist.h"
+	"employee.h"
+
+1424492384 c:\users\doktor\desktop\spring2015\cpp2\p1\aseqlist.h
+	<iostream>
+	<cstdlib>
+	"employee.h"
+
+1424493021 c:\users\doktor\desktop\spring2015\cpp2\p1\employee.h
+	<string>
+
+1424514747 source:c:\users\doktor\desktop\spring2015\cpp2\p1\emp_imp.cpp
+	<iostream>
+	"employee.h"
+

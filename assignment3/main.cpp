@@ -16,7 +16,7 @@ int main()
     cout << "how many candidates do you want to enter: ";
     cin >> numOfCandidates;
     if (numOfCandidates > 0){
-	    candidates = new candidate[numOfCandidates];
+	    candidates = new candidate[numOfCandidates]; //dynamic array
 	    for (int i = 0; i < numOfCandidates; i++){
 	        cout << "Enter last name: ";
 	        cin.ignore().clear();
