@@ -20,6 +20,8 @@ class Employee
         char Getgender();
         void Setgender(char);
         bool operator==(const Employee&) const;
+        void PrintEmployee() const;
+        void ReadEmployee(int, string, string, int, char);
     protected:
     private:
         int employeeNumber;

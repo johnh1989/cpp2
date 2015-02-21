@@ -91,3 +91,19 @@ bool Employee::operator==(const Employee& e) const
 {
     return lastName == e.lastName;
 }
+
+
+void Employee::PrintEmployee() const
+{
+    cout << "ID:" << employeeNumber
+         << " First Name:" << firstName
+         << " Last Name:" << lastName
+         << " Age:" << age
+         << " Gender:" << gender << endl;
+}
+
+
+void Employee::ReadEmployee(int en, string ln, string fn, int a, char g)
+{
+
+}
