@@ -6,7 +6,7 @@ using namespace std;
 
 void collectData(SeqList&);
 void deleteEmp(SeqList&);
-void PrintByGender (const SeqList&, char);
+void PrintByGender (const SeqList&, char, Employee&);
 int InList (const SeqList&, string, Employee&);
 int main()
 {
@@ -42,7 +42,7 @@ int main()
 
             case 3: cout << "Which gender : m/f";
                     cin >> gen;
-                    PrintByGender(ListOfEmployees, gen);
+                    PrintByGender(ListOfEmployees, gen, Emp_search);
                     break;
 
             case 4: cout << "Please Enter a last name to search for: ";
@@ -78,7 +78,6 @@ void collectData(SeqList& L)
     cin.ignore(numeric_limits<streamsize>::max(),'\n');
 
     cout << "\nEnter First Name: ";
-    cin.ignore();
     getline(cin, fname);
 
     cout << "\nEnter Last Name: ";
@@ -129,9 +128,25 @@ void deleteEmp(SeqList& L)
 }
 
 
-void PrintByGender (const SeqList& L, char gender)
+void PrintByGender (const SeqList& L, char gender, Employee& Emp)
 {
+    int x = 0;
 
+    const int INDEX = L.ListSize();
+    Employee empArray[INDEX];
+
+    for (int i = 0; i < L.ListSize(); i++)
+    {
+        Emp = L.GetData(i);
+        empArray[i] = Emp;
+    }
+    for (int i = 0; i < L.ListSize(); i++)
+    {
+       if (gender == empArray[i].Getgender())
+       {
+           empArray[i].PrintEmployee();
+       }
+    }
 }
 
 

@@ -96,10 +96,10 @@ bool Employee::operator==(const Employee& e) const
 void Employee::PrintEmployee() const
 {
     cout << "ID:" << employeeNumber
-         << " First Name:" << firstName
-         << " Last Name:" << lastName
-         << " Age:" << age
-         << " Gender:" << gender << endl;
+         << ", First Name:" << firstName
+         << ", Last Name:" << lastName
+         << ", Age:" << age
+         << ", Gender:" << gender << endl;
 }
 
 
