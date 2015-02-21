@@ -7,9 +7,13 @@ using namespace std;
 void collectData(SeqList&);
 void deleteEmp(SeqList&);
 void PrintByGender (const SeqList&, char);
+int InList (const SeqList&, string, Employee&);
 int main()
 {
     int choice = 1;
+    int foundInlist;
+    Employee Emp_search;//Used as reference parameter InList function
+    string lname;
     char gen;
     SeqList ListOfEmployees;
     //SeqList* loe = &ListOfEmployees;
@@ -20,8 +24,8 @@ int main()
         cout << "1. Enter employee information" << endl;
         cout << "2. Delete Employee" << endl;
         cout << "3. Print by Gender" << endl;
-        cout << "5. Search for employee" << endl;
-        cout << "6. Print all employee data" << endl;
+        cout << "4. Search for employee" << endl;
+        cout << "5. Print all employee data" << endl;
         cout << "or press 0 to exit" << endl;
         cin >> choice;
 
@@ -41,8 +45,15 @@ int main()
                     PrintByGender(ListOfEmployees, gen);
                     break;
 
-            //case 4: searchEmp(ListOfEmployees);
-                    //break;
+            case 4: cout << "Please Enter a last name to search for: ";
+                    cin.ignore();
+                    getline(cin, lname);
+                    cout << lname << endl;
+                    foundInlist = InList(ListOfEmployees,lname,Emp_search);
+                    if(foundInlist == 0){
+                        cout << endl << lname << " not found in list" << endl;
+                    }
+                    break;
 
             //case 5: printAll(ListOfEmployees);
                     //break;
@@ -124,11 +135,32 @@ void PrintByGender (const SeqList& L, char gender)
 }
 
 
-int InList (const SeqList& L, string lname, Employee& Emp)
+int InList(const SeqList& L, string lname, Employee& Emp)
 {
-    int x;
-    x = L.Find(Emp);
-    cout <<  Emp.GetlastName() << "is in the list";
+    int x = 0;
+    Employee emp_to_search;
+
+    const int INDEX = L.ListSize();
+    Employee empArray[INDEX];
+    for (int i = 0; i < L.ListSize(); i++)
+    {
+        Emp = L.GetData(i);
+        empArray[i] = Emp;
+    }
+    for (int i = 0; i< L.ListSize(); i++)
+    {
+        if(lname == empArray[i].GetlastName()){
+            emp_to_search = empArray[i];
+            x = L.Find(emp_to_search);
+        }
+
+        if(x == 1){
+            cout << "__FOUND__" << endl;
+            cout << empArray[i].GetemployeeNumber() << ": "
+                << empArray[i].GetlastName() << endl;
+            return x;
+        }
+    }
     return x;
 }
 
