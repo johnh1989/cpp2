@@ -120,7 +120,7 @@ void deleteEmp(SeqList& L)
     {
         /*Get data from list
           Store result in Employee e variable
-          deep copy into empArray
+          copy into empArray
         */
         e = L.GetData(i);
         empArray[i] = e;
@@ -160,7 +160,7 @@ void PrintByGender (const SeqList& L, char gender, Employee& Emp)
     {
         /*Get data from list
           Store result in Employee e variable
-          deep copy into empArray
+          copy into empArray
         */
         Emp = L.GetData(i);
         empArray[i] = Emp;
@@ -186,7 +186,7 @@ int InList(const SeqList& L, string lname, Employee& Emp)
     {
         /*Get data from list
           Store result in Employee e variable
-          deep copy into empArray
+          copy into empArray
         */
         Emp = L.GetData(i);
         empArray[i] = Emp;

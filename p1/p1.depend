@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1424566758 source:c:\users\doktor\desktop\spring2015\cpp2\p1\main.cpp
+1424567616 source:c:\users\doktor\desktop\spring2015\cpp2\p1\main.cpp
 	<iostream>
 	<limits>
 	"aseqlist.h"
@@ -10,10 +10,10 @@
 	<cstdlib>
 	"employee.h"
 
-1424548079 c:\users\doktor\desktop\spring2015\cpp2\p1\employee.h
+1424567616 c:\users\doktor\desktop\spring2015\cpp2\p1\employee.h
 	<string>
 
-1424562742 source:c:\users\doktor\desktop\spring2015\cpp2\p1\emp_imp.cpp
+1424567616 source:c:\users\doktor\desktop\spring2015\cpp2\p1\emp_imp.cpp
 	<iostream>
 	"employee.h"
 
