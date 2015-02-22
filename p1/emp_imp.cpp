@@ -87,6 +87,7 @@ void Employee::Setgender(char val)
 }
 
 
+/* compares last names of two employee objects*/
 bool Employee::operator==(const Employee& e) const
 {
     return lastName == e.lastName;
@@ -105,5 +106,5 @@ void Employee::PrintEmployee() const
 
 void Employee::ReadEmployee(int en, string ln, string fn, int a, char g)
 {
-
+    //didnt need to use this function
 }

@@ -8,10 +8,12 @@ void collectData(SeqList&);
 void deleteEmp(SeqList&);
 void PrintByGender (const SeqList&, char, Employee&);
 int InList (const SeqList&, string, Employee&);
+void printAll(const SeqList&);
 int main()
 {
+    int numItemsInList = 0; // so user can't add more then 6 items
     int choice = 1;
-    int foundInlist;
+    int foundInlist; //holds return value for int InList()
     Employee Emp_search;//Used as reference parameter InList function
     string lname;
     char gen;
@@ -19,7 +21,6 @@ int main()
     //SeqList* loe = &ListOfEmployees;
 
     while(choice != 0){
-            cout << ListOfEmployees.ListSize() << endl;
         cout << "\nWhat would you like to do?" << endl;
         cout << "1. Enter employee information" << endl;
         cout << "2. Delete Employee" << endl;
@@ -31,13 +32,21 @@ int main()
 
         switch(choice)
         {
-            case 0: exit(1);
+            case 0: cout << "Goodbye";
+                    cin.ignore().get();
+                    exit(1);
                     break;
 
-            case 1: collectData(ListOfEmployees);
+            case 1: if (numItemsInList == 6){
+                        cout << "\n You Must delete items first\n";
+                        break;
+                    }
+                    collectData(ListOfEmployees);
+                    numItemsInList++;
                     break;
 
             case 2: deleteEmp(ListOfEmployees);
+                    numItemsInList--;
                     break;
 
             case 3: cout << "Which gender : m/f";
@@ -55,10 +64,12 @@ int main()
                     }
                     break;
 
-            //case 5: printAll(ListOfEmployees);
-                    //break;
+            case 5: printAll(ListOfEmployees);
+                    break;
         }
     }
+    cin.ignore().clear();
+    cin.get();
     return 0;
 }
 
@@ -88,6 +99,10 @@ void collectData(SeqList& L)
 
     cout << "\nEnter gender: m/f: ";
     cin >> gender;
+
+    /*Create temporary employee object
+     and insert into our list
+    */
     Employee temp(empid, lname, fname, age, gender);
     L.Insert(temp);
 
@@ -103,9 +118,14 @@ void deleteEmp(SeqList& L)
     Employee e;
     for (int i = 0; i < L.ListSize(); i++)
     {
+        /*Get data from list
+          Store result in Employee e variable
+          deep copy into empArray
+        */
         e = L.GetData(i);
-        //e.PrintEmployee();
         empArray[i] = e;
+
+        /*Print all last names for user to see*/
         cout << empArray[i].GetlastName() << endl;
     }
     cout << "Which employee do you want to delete?" << endl;
@@ -116,6 +136,7 @@ void deleteEmp(SeqList& L)
     {
         if(lname == empArray[i].GetlastName())
         {
+            /*Delete object from seq list */
             L.Delete(empArray[i]);
             cout << "\nEmployee deleted successfully" << endl;
             break;
@@ -137,6 +158,10 @@ void PrintByGender (const SeqList& L, char gender, Employee& Emp)
 
     for (int i = 0; i < L.ListSize(); i++)
     {
+        /*Get data from list
+          Store result in Employee e variable
+          deep copy into empArray
+        */
         Emp = L.GetData(i);
         empArray[i] = Emp;
     }
@@ -159,17 +184,32 @@ int InList(const SeqList& L, string lname, Employee& Emp)
     Employee empArray[INDEX];
     for (int i = 0; i < L.ListSize(); i++)
     {
+        /*Get data from list
+          Store result in Employee e variable
+          deep copy into empArray
+        */
         Emp = L.GetData(i);
         empArray[i] = Emp;
     }
     for (int i = 0; i< L.ListSize(); i++)
     {
         if(lname == empArray[i].GetlastName()){
+            /*If last names match,
+                copy object in empArray
+                into Employee object emp_to_search
+            */
             emp_to_search = empArray[i];
+
+            /* Check for match,
+               returns 1 for true, 0 for false
+            */
             x = L.Find(emp_to_search);
         }
 
         if(x == 1){
+            /*If match was found print out
+                Employee number and Last Name
+            */
             cout << "__FOUND__" << endl;
             cout << empArray[i].GetemployeeNumber() << ": "
                 << empArray[i].GetlastName() << endl;
@@ -177,5 +217,22 @@ int InList(const SeqList& L, string lname, Employee& Emp)
         }
     }
     return x;
+}
+
+void printAll(const SeqList& L)
+{
+    Employee Emp;
+
+    const int INDEX = L.ListSize();
+    Employee empArray[INDEX];
+    for (int i = 0; i < L.ListSize(); i++)
+    {
+        Emp = L.GetData(i);
+        empArray[i] = Emp;
+    }
+    for (int i = 0; i< L.ListSize(); i++)
+    {
+        empArray[i].PrintEmployee();
+    }
 }
 
