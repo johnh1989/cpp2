@@ -43,7 +43,7 @@ public:
       //               If deleteItem is not in the list, an
       //               appropriate message is printed.
 
-    void DeleteNth(int index);
+    void DeleteKth(int index);
 };
 
 
@@ -185,7 +185,7 @@ void orderedLinkedList<Type>::deleteNode(const Type& deleteItem){
 }//end deleteNode
 
 template <class Type>
-void orderedLinkedList<Type>::DeleteNth(int index)
+void orderedLinkedList<Type>::DeleteKth(int index)
 {
     nodeType<Type> *current; //pointer to traverse the list
     nodeType<Type> *trailCurrent; //pointer just before current
