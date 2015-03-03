@@ -24,6 +24,7 @@ using namespace std;
 void addelements(orderedLinkedList<int>&);
 void printElements(orderedLinkedList<int>&);
 void findElement(orderedLinkedList<int>&);
+void deleteElement(orderedLinkedList<int>&);
 
 int main()
 {
@@ -36,6 +37,7 @@ int main()
         cout << "2. Print elements in the list" << endl;
         cout << "3. Find element in list" << endl;
         cout << "4. Delete element in list" << endl;
+        cout << "5. Show Length of list" << endl;
         cout << "0. EXIT" << endl << endl;
         cin >> choice;
 
@@ -47,6 +49,14 @@ int main()
                 break;
 
         case 3: findElement(list1);
+                break;
+
+        case 4: deleteElement(list1);
+                break;
+
+        case 5: int length;
+                length = list1.length();
+                cout << length << " Items in list\n";
                 break;
         }
     }
@@ -96,4 +106,12 @@ void findElement(orderedLinkedList<int>& list1)
     }else{
         cout << "\""  << ret_value << "\"" << " was the data stored at index " << num << endl;
     }
+}
+
+void deleteElement(orderedLinkedList<int>& list1)
+{
+    int num;
+    cout << "\nWhich element do you want to delete by index? : ";
+    cin >> num;
+    list1.DeleteKth(num);
 }

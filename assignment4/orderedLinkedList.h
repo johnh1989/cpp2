@@ -220,7 +220,7 @@ void orderedLinkedList<Type>::DeleteKth(int index)
 
                     if (linkedListType<Type>::first == NULL) //if first is empty, set last to null also
                         linkedListType<Type>::last = NULL;
-
+                    cout << "Deleting item at index " << index << endl;
                     delete current;
                 }
                 else{ //case 3 keep traversing the list
@@ -229,7 +229,7 @@ void orderedLinkedList<Type>::DeleteKth(int index)
 
                     if (current == linkedListType<Type>::last)
                         linkedListType<Type>::last = trailCurrent;
-
+                    cout << "Deleting item at index " << index << endl;
                     delete current;
                 }
                 linkedListType<Type>::count--;
