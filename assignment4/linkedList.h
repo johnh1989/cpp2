@@ -198,7 +198,7 @@ public:
       //Deletes all the nodes from the list.
       //Postcondition: The list object is destroyed.
 
-      Type GetNth(int index);
+      Type GetKth(int index);
 
 protected:
     int count;   //variable to store the number of
@@ -375,21 +375,29 @@ const linkedListType<Type>& linkedListType<Type>::operator=(const linkedListType
 }
 
 
+/*returns Type*/
 template <class Type>
-Type linkedListType<Type>::GetNth(int index)
+Type linkedListType<Type>::GetKth(int index)
 {
     nodeType<Type>* current = first;
-    int count = 0; /*index of current node*/
+    int counter = 0; /*index of current node*/
     while (current != NULL)
     {
-       if (count == index)
+       if (counter == index){
           return(current->info);
-       count++;
+       }
+       counter++;
        current = current->link;
     }
 
-    /*make sure node exists, if not fail*/
-    assert(0);
+    if (isEmptyList()){
+        cout<< "\nLIST WAS EMPTY\n";
+        return NULL;
+    }
+    if (index > length()-1){
+        cout << "\nThat index doesnt exist in the list\n";
+        return NULL;
+    }
 }
 
 #endif

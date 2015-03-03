@@ -204,7 +204,7 @@ void orderedLinkedList<Type>::DeleteNth(int index)
             else{
                 trailCurrent = current;
                 current = current->link;
-                counter ++;
+                counter++;
             }
 
         if (current == NULL)   //Case 4
