@@ -61,13 +61,6 @@ int main()
         }
     }
 
-	bool x = list1.isEmptyList();
-	if (x == true){
-        cout <<"x is true";
-	}
-
-
-
 	cin.get();
 	return 0;
 }
