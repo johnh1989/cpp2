@@ -1,0 +1,12 @@
+# depslib dependency file v1.0
+1427759089 source:c:\users\doktor\desktop\spring2015\cpp2\assignment5\main.cpp
+	<iostream>
+	"linkedQueue.h"
+
+1427759137 c:\users\doktor\desktop\spring2015\cpp2\assignment5\linkedqueue.h
+	<iostream>
+	<cassert>
+	"queueADT.h"
+
+1427572201 c:\users\doktor\desktop\spring2015\cpp2\assignment5\queueadt.h
+

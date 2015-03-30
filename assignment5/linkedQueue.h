@@ -73,11 +73,17 @@ public:
     ~linkedQueueType();
       //Destructor
 
+    int queueCount();
+
+    void printAll();
+
 private:
     nodeType<Type> *queueFront; //pointer to the front of
                                 //the queue
     nodeType<Type> *queueRear;  //pointer to the rear of
                                 //the queue
+
+    int count;
 };
 
     //Default constructor
@@ -86,6 +92,7 @@ linkedQueueType<Type>::linkedQueueType()
 {
     queueFront = NULL; //set front to null
     queueRear = NULL;  //set rear to null
+    count = 0;
 } //end default constructor
 
 template<class Type>
@@ -129,6 +136,8 @@ void linkedQueueType<Type>::addQueue(const Type& newElement)
     newNode->info = newElement; //store the info
     newNode->link = NULL;  //initialize the link field to NULL
 
+    count++;
+
     if (queueFront == NULL) //if initially the queue is empty
     {
         queueFront = newNode;
@@ -168,6 +177,8 @@ void linkedQueueType<Type>::deleteQueue()
 
         delete temp;    //delete the first node
 
+        count--;
+
         if (queueFront == NULL) //if after deletion the
                                 //queue is empty
             queueRear = NULL;   //set queueRear to NULL
@@ -182,6 +193,7 @@ template <class Type>
 linkedQueueType<Type>::~linkedQueueType()
 {
     //Write the definition of the destructor
+
 } //end destructor
 
 template <class Type>
@@ -189,7 +201,16 @@ const linkedQueueType<Type>& linkedQueueType<Type>::operator=
                     (const linkedQueueType<Type>& otherQueue)
 {
     //Write the definition of to overload the assignment operator
-
+    if (otherQueue.isEmptyQueue()){
+        cout << "Nothing here" << endl;
+    }else{
+        nodeType<Type> *current;
+        current = otherQueue.queueFront;
+        while (current != NULL){
+            linkedQueueType::addQueue(current->info);
+            current = current->link;
+        }
+    }
 } //end assignment operator
 
 	//copy constructor
@@ -198,6 +219,28 @@ linkedQueueType<Type>::linkedQueueType
                  (const linkedQueueType<Type>& otherQueue)
 {
     //Write the definition of the copy constructor
+
+
 }//end copy constructor
+
+template <class Type>
+int linkedQueueType<Type>::queueCount(){
+    return count;
+}
+
+template <class Type>
+void linkedQueueType<Type>::printAll(){
+    if (isEmptyQueue()){
+        cout << "Nothing here" << endl;
+    }else{
+        nodeType<Type> *current;
+        current = linkedQueueType<Type>::queueFront;
+        while (current != NULL){
+            cout << current->info << " ";
+            current = current->link;
+        }
+        cout << "\n" << endl;
+    }
+}
 
 #endif // LINKEDQUEUE_H_INCLUDED
