@@ -70,6 +70,8 @@ public:
     linkedQueueType(const linkedQueueType<Type>& otherQueue);
       //Copy constructor
 
+    void copyQueue(const linkedQueueType<Type>& otherQueue);
+
     ~linkedQueueType();
       //Destructor
 
@@ -201,6 +203,21 @@ const linkedQueueType<Type>& linkedQueueType<Type>::operator=
                     (const linkedQueueType<Type>& otherQueue)
 {
     //Write the definition of to overload the assignment operator
+    copyQueue(otherQueue);
+    return *this;
+} //end assignment operator
+
+	//copy constructor
+template <class Type>
+linkedQueueType<Type>::linkedQueueType
+                 (const linkedQueueType<Type>& otherQueue)
+{
+    //Write the definition of the copy constructor
+    copyQueue(otherQueue);
+}//end copy constructor
+
+template <class Type>
+void linkedQueueType<Type>::copyQueue(const linkedQueueType<Type>& otherQueue){
     if (otherQueue.isEmptyQueue()){
         cout << "\nQueue is empty" << endl;
     }else{
@@ -211,16 +228,7 @@ const linkedQueueType<Type>& linkedQueueType<Type>::operator=
             current = current->link;
         }
     }
-} //end assignment operator
-
-	//copy constructor
-template <class Type>
-linkedQueueType<Type>::linkedQueueType
-                 (const linkedQueueType<Type>& otherQueue)
-{
-    //Write the definition of the copy constructor
-
-}//end copy constructor
+}
 
 template <class Type>
 int linkedQueueType<Type>::queueCount(){
