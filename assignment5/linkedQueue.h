@@ -202,7 +202,7 @@ const linkedQueueType<Type>& linkedQueueType<Type>::operator=
 {
     //Write the definition of to overload the assignment operator
     if (otherQueue.isEmptyQueue()){
-        cout << "Nothing here" << endl;
+        cout << "\nQueue is empty" << endl;
     }else{
         nodeType<Type> *current;
         current = otherQueue.queueFront;
@@ -220,7 +220,6 @@ linkedQueueType<Type>::linkedQueueType
 {
     //Write the definition of the copy constructor
 
-
 }//end copy constructor
 
 template <class Type>
@@ -231,7 +230,7 @@ int linkedQueueType<Type>::queueCount(){
 template <class Type>
 void linkedQueueType<Type>::printAll(){
     if (isEmptyQueue()){
-        cout << "Nothing here" << endl;
+        cout << "\nQueue is empty" << endl;
     }else{
         nodeType<Type> *current;
         current = linkedQueueType<Type>::queueFront;
