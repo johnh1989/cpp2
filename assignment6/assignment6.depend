@@ -1,0 +1,21 @@
+# depslib dependency file v1.0
+1428247435 source:c:\users\doktor\desktop\spring2015\cpp2\assignment6\emp_imp.cpp
+	<iostream>
+	"employee.h"
+
+1428247435 c:\users\doktor\desktop\spring2015\cpp2\assignment6\employee.h
+	<string>
+
+1428247628 source:c:\users\doktor\desktop\spring2015\cpp2\assignment6\main.cpp
+	<iostream>
+	"binarySearchTree.h"
+	"Employee.h"
+	<Limits>
+
+1428247694 c:\users\doktor\desktop\spring2015\cpp2\assignment6\binarysearchtree.h
+	<iostream>
+	"binaryTree.h"
+
+1428245101 c:\users\doktor\desktop\spring2015\cpp2\assignment6\binarytree.h
+	<iostream>
+
