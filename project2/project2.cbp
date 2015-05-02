@@ -35,6 +35,7 @@
 			<Add option="-fexceptions" />
 		</Compiler>
 		<Unit filename="include/Payroll.h" />
+		<Unit filename="include/PayrollOrderedList.h" />
 		<Unit filename="include/linkedList.h" />
 		<Unit filename="include/orderedLinkedList.h" />
 		<Unit filename="main.cpp" />

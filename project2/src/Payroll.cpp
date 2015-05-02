@@ -1,11 +1,18 @@
 #include <iostream>
+#include <iomanip>
 #include "Payroll.h"
 
 using namespace std;
 
 Payroll::Payroll()
 {
-
+    EmployeeNumber = 0;
+    LastName = "";
+    FirstName = "";
+    DeptNumber = 0;
+    PayRate = 0.00;
+    HoursWorked = 0.00;
+    PayAmount = 0.00;
 }
 
 Payroll::Payroll(int en, string ln, string fn, int dn, double pr, double hw)
@@ -16,6 +23,7 @@ Payroll::Payroll(int en, string ln, string fn, int dn, double pr, double hw)
     DeptNumber = dn;
     PayRate = pr;
     HoursWorked = hw;
+    PayAmount = 0.00;
 }
 
 
@@ -33,10 +41,15 @@ Payroll::Payroll(const Payroll& other)
 
 Payroll& Payroll::operator=(const Payroll& rhs)
 {
-    if (this == &rhs) return *this; // handle self assignment
-    //assignment operator
-    return *this;
+
+    EmployeeNumber = rhs.EmployeeNumber;
+    LastName = rhs.LastName;
+    FirstName = rhs.FirstName;
+    DeptNumber = rhs.DeptNumber;
+    PayRate = rhs.PayRate;
+    HoursWorked = rhs.HoursWorked;
 }
+
 
 bool Payroll::operator>=(const Payroll &other){
     return EmployeeNumber >= other.EmployeeNumber;
@@ -46,21 +59,26 @@ bool Payroll::operator==(const Payroll &other){
     return EmployeeNumber == other.EmployeeNumber;
 }
 
-void Payroll::PrintPayroll() const{
+void Payroll::PrintPayroll() {
+    cout << endl;
+    cout << "*****************" << endl;
     cout << "Employee #: " << EmployeeNumber
-         << "First Name: " << FirstName
-         << "Last Name: " << LastName
-         << "Dept #: " << DeptNumber
-         << "Rate: " << PayRate
-         << "Hours: " << HoursWorked
-         << "Amount: " << PayAmount << endl;
+         << "\nFirst Name: " << FirstName
+         << "\nLast Name : " << LastName
+         << "\nDept #    : " << DeptNumber
+         << setprecision(2) << fixed
+         << "\nRate      : $" << PayRate
+         << "\nHours     : " << HoursWorked
+         << "\nAmount    : $" << CalculatePayAmount() << endl;
+    cout << "*****************" << endl;
 }
 
 double Payroll::CalculatePayAmount(){
-    return (HoursWorked * PayRate);
+    PayAmount = HoursWorked * PayRate;
+    return PayAmount;
 }
 
-ostream& operator<<(ostream &stream, const Payroll& ob){
+ostream& operator<<(ostream &stream, Payroll& ob){
             ob.PrintPayroll();
             return stream;
 }

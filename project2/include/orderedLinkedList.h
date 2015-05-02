@@ -42,6 +42,10 @@ public:
       //               new list, and count is decremented by 1.
       //               If deleteItem is not in the list, an
       //               appropriate message is printed.
+
+    bool searchEmployee(Type& searchItem);
+    //Searches for Employee and if found
+    //Sets the searchItem = to the found item and returns true.
 };
 
 
@@ -169,6 +173,7 @@ void orderedLinkedList<Type>::deleteNode(const Type& deleteItem)
                         linkedListType<Type>::last = NULL;
 
                     delete current;
+                    cout << "\nupdating list..." << endl;
                 }
                 else                         //Case 3
                 {
@@ -178,6 +183,7 @@ void orderedLinkedList<Type>::deleteNode(const Type& deleteItem)
                         linkedListType<Type>::last = trailCurrent;
 
                     delete current;
+                    cout << "\nupdating list..." << endl;
                 }
                 linkedListType<Type>::count--;
             }
@@ -186,5 +192,31 @@ void orderedLinkedList<Type>::deleteNode(const Type& deleteItem)
                      << "list." << endl;
     }
 }//end deleteNode
+
+template <class Type>
+bool orderedLinkedList<Type>::searchEmployee(Type& searchItem)
+{
+    bool found = false;
+    Type item;
+    nodeType<Type> *current; //pointer to traverse the list
+
+    current = linkedListType<Type>::first;  //start the search at the first node
+
+    while (current != NULL && !found)
+        if (current->info >= searchItem)
+            found = true;
+        else
+            current = current->link;
+
+    if (found){
+       found = (current->info == searchItem); //test for equality
+       if (found){
+        searchItem = current->info;
+       }
+
+    }
+
+    return found;
+}//end search
 
 #endif // ORDEREDLINKEDLIST_H_INCLUDED

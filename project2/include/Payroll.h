@@ -37,7 +37,7 @@ class Payroll
         double GetPayAmount() { return PayAmount; }
         //void SetPayAmount(double val) { PayAmount = val; }
 
-        void PrintPayroll() const;
+        void PrintPayroll();
 
         double CalculatePayAmount();
 
@@ -51,7 +51,7 @@ class Payroll
         double PayRate;
         double HoursWorked;
         double PayAmount;
-        friend ostream &operator<<(ostream&, const Payroll&);
+        friend ostream &operator<<(ostream&, Payroll&);
 };
 
 #endif // PAYROLL_H
